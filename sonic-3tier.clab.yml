@@ -19,7 +19,7 @@ topology:
     host1:
       kind: linux
       image: alpine:latest
-      mgmt_ipv4: 172.20.20.9
+      mgmt-ipv4: 172.20.20.9
       exec:
         - ip link set up dev eth1
   links:
