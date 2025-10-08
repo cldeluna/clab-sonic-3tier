@@ -6,6 +6,13 @@ topology:
       image: docker-sonic-vs:latest
       mgmt-ipv4: 172.20.20.6
       startup-config: ./configs/core1_config_db.json
+      exec:
+        - apt update
+        - apt install -y openssh-server
+        - echo "admin:sonic" | chpasswd
+        - sed -i 's/^#\?PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+        - sed -i 's/^#\?PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config
+        - service ssh start
     dist1:
       kind: sonic-vs
       image: docker-sonic-vs:latest
