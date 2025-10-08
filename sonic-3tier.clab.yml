@@ -9,7 +9,9 @@ topology:
       exec:
         - apt update
         - apt install -y openssh-server
+        - useradd -m -s /bin/bash admin || true
         - echo "admin:sonic" | chpasswd
+        - usermod -aG sudo admin || usermod -aG wheel admin || true
         - sed -i 's/^#\?PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
         - sed -i 's/^#\?PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config
         - service ssh start
