@@ -1,0 +1,19 @@
+{
+  "DEVICE_METADATA": {
+    "localhost": { "hostname": "core1", "local_router_id": "192.0.2.1" }
+  },
+  "LOOPBACK_INTERFACE": { "Loopback0": { "192.0.2.1/32": {}} },
+  "INTERFACE": {
+    "Ethernet1": { "192.0.2.9/30": {} }
+  },
+  "MGMT_VRF_CONFIG": { "vrf_global": { "mgmtVrfEnabled": "true" } },
+  "SNMP_COMMUNITY": { "SONiCSauce": { "RO": ["::/0"] } },
+  "SNMP_USER": {
+    "status": {
+      "auth_protocol": "MD5",
+      "auth_password": "sonic",
+      "priv_protocol": "DES",
+      "priv_password": "sonic"
+    }
+  }
+}

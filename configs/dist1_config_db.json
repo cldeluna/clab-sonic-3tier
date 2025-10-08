@@ -1,0 +1,37 @@
+{
+  "DEVICE_METADATA": {
+    "localhost": { "hostname": "dist1", "local_router_id": "192.0.2.2" }
+  },
+  "LOOPBACK_INTERFACE": { "Loopback0": { "192.0.2.2/32": {}} },
+  "INTERFACE": {
+    "Ethernet1": { "192.0.2.10/30": {} },
+    "Ethernet2": { "192.0.2.13/30": {} },
+    "Ethernet3": {}
+  },
+  "VLAN": {
+    "Vlan7":   { "vlanid": "7",   "members": ["Ethernet2", "Ethernet3"],   "name": "Mgmt-192.0.2.32/27" },
+    "Vlan10":  { "vlanid": "10",  "members": ["Ethernet2", "Ethernet3"],   "name": "Printers-192.0.2.64/27" },
+    "Vlan20":  { "vlanid": "20",  "members": ["Ethernet2", "Ethernet3"],   "name": "Signage-192.0.2.96/27" },
+    "Vlan30":  { "vlanid": "30",  "members": ["Ethernet2", "Ethernet3"],   "name": "Video-192.0.2.128/27" },
+    "Vlan40":  { "vlanid": "40",  "members": ["Ethernet2", "Ethernet3"],   "name": "Audio-192.0.2.160/27" },
+    "Vlan50":  { "vlanid": "50",  "members": ["Ethernet2", "Ethernet3"],   "name": "WiFi-192.0.2.192/27" }
+  },
+  "VLAN_INTERFACE": {
+    "Vlan7|192.0.2.33/27":   { "description": "Building Management Gateway" },
+    "Vlan10|192.0.2.65/27":  { "description": "Printers Gateway" },
+    "Vlan20|192.0.2.97/27":  { "description": "Digital Signage Gateway" },
+    "Vlan30|192.0.2.129/27": { "description": "Video Surveillance Gateway" },
+    "Vlan40|192.0.2.161/27": { "description": "Audio Paging Gateway" },
+    "Vlan50|192.0.2.193/27": { "description": "WiFi Controllers Gateway" }
+  },
+  "MGMT_VRF_CONFIG": { "vrf_global": { "mgmtVrfEnabled": "true" } },
+  "SNMP_COMMUNITY": { "SONiCSauce": { "RO": ["::/0"] } },
+  "SNMP_USER": {
+    "status": {
+      "auth_protocol": "MD5",
+      "auth_password": "sonic",
+      "priv_protocol": "DES",
+      "priv_password": "sonic"
+    }
+  }
+}

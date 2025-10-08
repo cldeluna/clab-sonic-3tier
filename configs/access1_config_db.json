@@ -1,0 +1,29 @@
+{
+  "DEVICE_METADATA": {
+    "localhost": { "hostname": "access1", "local_router_id": "192.0.2.3" }
+  },
+  "LOOPBACK_INTERFACE": { "Loopback0": { "192.0.2.3/32": {}} },
+  "INTERFACE": {
+    "Ethernet1": {},
+    "Ethernet2": {},
+    "Ethernet3": {}
+  },
+  "VLAN": {
+    "Vlan7":   { "vlanid": "7",   "members": ["Ethernet1", "Ethernet2"],   "name": "Mgmt-192.0.2.32/27" },
+    "Vlan10":  { "vlanid": "10",  "members": ["Ethernet1", "Ethernet2"],   "name": "Printers-192.0.2.64/27" },
+    "Vlan20":  { "vlanid": "20",  "members": ["Ethernet1", "Ethernet2"],   "name": "Signage-192.0.2.96/27" },
+    "Vlan30":  { "vlanid": "30",  "members": ["Ethernet1", "Ethernet2"],   "name": "Video-192.0.2.128/27" },
+    "Vlan40":  { "vlanid": "40",  "members": ["Ethernet1", "Ethernet2"],   "name": "Audio-192.0.2.160/27" },
+    "Vlan50":  { "vlanid": "50",  "members": ["Ethernet1", "Ethernet2"],   "name": "WiFi-192.0.2.192/27" }
+  },
+  "MGMT_VRF_CONFIG": { "vrf_global": { "mgmtVrfEnabled": "true" } },
+  "SNMP_COMMUNITY": { "SONiCSauce": { "RO": ["::/0"] } },
+  "SNMP_USER": {
+    "status": {
+      "auth_protocol": "MD5",
+      "auth_password": "sonic",
+      "priv_protocol": "DES",
+      "priv_password": "sonic"
+    }
+  }
+}

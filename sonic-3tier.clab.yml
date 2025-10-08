@@ -1,0 +1,25 @@
+name: sonic-campus
+topology:
+  nodes:
+    core1:
+      kind: sonic-vs
+      image: docker-sonic-vs:latest
+      startup-config: ./configs/core1_config_db.json
+    dist1:
+      kind: sonic-vs
+      image: docker-sonic-vs:latest
+      startup-config: ./configs/dist1_config_db.json
+    access1:
+      kind: sonic-vs
+      image: docker-sonic-vs:latest
+      startup-config: ./configs/access1_config_db.json
+    host1:
+      kind: linux
+      image: alpine:latest
+      exec:
+        - ip link set up dev eth1
+  links:
+    - endpoints: ["core1:eth1", "dist1:eth1"]
+    - endpoints: ["dist1:eth2", "access1:eth1"]
+    - endpoints: ["dist1:eth3", "access1:eth2"]
+    - endpoints: ["access1:eth3", "host1:eth1"]
